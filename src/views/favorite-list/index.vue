@@ -48,10 +48,10 @@ const playFavorite = (item, index) => {
 /* transform会与backdrop-filter导致未知问题，所以这里用margin  */
 @keyframes enter {
   from {
-    margin-right: -280px;
+    transform: translateX(100%);
   }
   to {
-    margin-right: 0;
+    transform: translateY(0);
   }
 }
 
@@ -62,8 +62,8 @@ const playFavorite = (item, index) => {
   right: 0;
   width: 280px;
   height: 640px;
-  background: rgba(187, 186, 186, 0.7);
-  // backdrop-filter: blur(10px);
+  background: rgba(199, 185, 153, 0.3);
+  backdrop-filter: blur(20px);
   overflow-y: scroll;
   .item {
     color: #fff;

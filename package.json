@@ -38,9 +38,7 @@
   },
   "keywords": [
     "electron",
-    "rollup",
     "vite",
-    "vue3",
-    "vue"
+    "vue3"
   ]
 }

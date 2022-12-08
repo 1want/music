@@ -21,6 +21,8 @@ async function createWindow() {
   win = new electron.BrowserWindow({
     width: 880,
     height: 640,
+    minWidth: 880,
+    minHeight: 640,
     transparent: true,
     titleBarStyle: "hidden",
     backgroundColor: "rgba(112, 106, 104, 0.3)",

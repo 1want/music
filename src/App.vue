@@ -33,17 +33,15 @@ import Player from '@/components/play/index.vue'
   font-size: 14px;
   width: 100vw;
   height: 100vh;
-  /* margin-top: 20px; */
-  /* background: #cdcbca23; */
-  /* background: rgba(112, 106, 104, 0.137); */
-  /* background: #93919021; */
+  background: url('https://pic.dmjnb.com/pic/9102b931c879210fef9bfdc81c112c6b?imageMogr2/thumbnail/x380/quality/90!')
+    center/cover no-repeat;
 }
 .play-box {
-  /* border: 1px solid rgba(53, 51, 51, 0.3); */
-  /* overflow: hidden; */
+  background: rgba(21, 21, 21, 0.5);
+  height: calc(100% - 20px);
   padding-top: 20px;
-  width: 880px;
-  height: 620px;
-  position: absolute;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 </style>

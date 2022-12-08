@@ -107,7 +107,8 @@ header {
 }
 
 .music-list {
-  height: 470px;
+  height: calc(100% - 160px);
+
   overflow: scroll;
   .list-item {
     display: flex;
@@ -125,7 +126,7 @@ header {
     }
     .operate {
       font-size: 26px;
-      width: 140px;
+      width: 180px;
       cursor: pointer;
       .like {
         margin-left: 20px !important;

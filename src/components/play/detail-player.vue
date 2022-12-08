@@ -57,17 +57,19 @@ watch(
   height: 100%;
   position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: rgb(20, 20, 20);
-  z-index: 999;
+  z-index: 100;
 
   .back {
     position: absolute;
     top: 2px;
     left: 90px;
     cursor: pointer;
-    // padding: 5px;
+    padding: 3px;
     font-size: 24px;
-    // color: #fff;
   }
   .hover-img {
     position: absolute;

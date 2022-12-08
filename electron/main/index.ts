@@ -44,17 +44,15 @@ async function createWindow() {
   win = new BrowserWindow({
     width: 880,
     height: 640,
+    minWidth: 880,
+    minHeight: 640,
     transparent: true,
     titleBarStyle: 'hidden',
     backgroundColor: 'rgba(112, 106, 104, 0.3)',
-    // frame: false,
     title: '',
     icon: join(process.env.PUBLIC, 'favicon.ico'),
     webPreferences: {
       preload,
-      // Warning: Enable nodeIntegration and disable contextIsolation is not secure in production
-      // Consider using contextBridge.exposeInMainWorld
-      // Read more on https://www.electronjs.org/docs/latest/tutorial/context-isolation
       nodeIntegration: true,
       contextIsolation: false
     }
