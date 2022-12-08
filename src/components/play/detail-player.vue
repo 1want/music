@@ -65,7 +65,7 @@ watch(
 
   .back {
     position: absolute;
-    top: 2px;
+    top: 0;
     left: 90px;
     cursor: pointer;
     padding: 3px;

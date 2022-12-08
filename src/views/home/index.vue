@@ -113,7 +113,7 @@ header {
   .list-item {
     display: flex;
     align-items: center;
-    padding: 10px 0;
+    padding: 12px 0;
     color: #fff;
     .song-name {
       width: 340px;
@@ -125,12 +125,9 @@ header {
       cursor: pointer;
     }
     .operate {
-      font-size: 26px;
+      font-size: 23px;
       width: 180px;
       cursor: pointer;
-      .like {
-        margin-left: 20px !important;
-      }
     }
     &:hover {
       background: rgba(163, 161, 161, 0.1);

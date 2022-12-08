@@ -1,24 +1,27 @@
 <template>
   <transition name="showFavorite">
-    <ul class="favorite" v-show="isShowFavorite">
-      <li class="item" v-for="(item, index) of favoriteList" :key="item.id">
-        <span class="song-name txt-over">{{ item.name }}</span>
-        <span class="singer txt-over">
-          {{ item?.artists?.[0].name || item?.ar?.[0]?.name }}
-        </span>
-        <div class="operate">
-          <svg-icon
-            :name="isPlay(item.id) ? '24gl-pauseCircle' : '24gl-playCircle'"
-            @click="playFavorite(item, index)"
-          />
-          <svg-icon
-            class="delete"
-            name="shanchu"
-            @click="removeFavorite(item)"
-          />
-        </div>
-      </li>
-    </ul>
+    <div class="favorite" v-show="isShowFavorite">
+      <div class="bg"></div>
+      <ul>
+        <li class="item" v-for="(item, index) of favoriteList" :key="item.id">
+          <span class="song-name txt-over">{{ item.name }}</span>
+          <span class="singer txt-over">
+            {{ item?.artists?.[0].name || item?.ar?.[0]?.name }}
+          </span>
+          <div class="operate">
+            <svg-icon
+              :name="isPlay(item.id) ? '24gl-pauseCircle' : '24gl-playCircle'"
+              @click="playFavorite(item, index)"
+            />
+            <svg-icon
+              class="delete"
+              name="shanchu"
+              @click="removeFavorite(item)"
+            />
+          </div>
+        </li>
+      </ul>
+    </div>
   </transition>
 </template>
 
@@ -55,16 +58,30 @@ const playFavorite = (item, index) => {
   }
 }
 
+.bg {
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  width: 280px;
+  height: 640px;
+  background: url('@/assets/images/bg.jpg') center/cover no-repeat;
+}
+
 .favorite {
   position: absolute;
   z-index: 99;
   bottom: 0;
   right: 0;
-  width: 280px;
-  height: 640px;
-  background: rgba(199, 185, 153, 0.3);
-  backdrop-filter: blur(20px);
-  overflow-y: scroll;
+  top: 0;
+  ul {
+    width: 280px;
+    height: 640px;
+    background: rgba(114, 111, 104, 0.3);
+    backdrop-filter: blur(20px);
+    overflow-y: scroll;
+  }
   .item {
     color: #fff;
     padding: 10px;
@@ -79,7 +96,7 @@ const playFavorite = (item, index) => {
     }
     .operate {
       width: 60px;
-      font-size: 21px;
+      font-size: 20px;
       .delete {
         margin-left: 10px;
       }

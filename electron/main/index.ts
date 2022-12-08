@@ -48,7 +48,7 @@ async function createWindow() {
     minHeight: 640,
     transparent: true,
     titleBarStyle: 'hidden',
-    backgroundColor: 'rgba(112, 106, 104, 0.3)',
+    backgroundColor: 'rgba(60,55,59,0.45)',
     title: '',
     icon: join(process.env.PUBLIC, 'favicon.ico'),
     webPreferences: {
