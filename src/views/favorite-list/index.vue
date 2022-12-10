@@ -1,27 +1,24 @@
 <template>
   <transition name="showFavorite">
-    <div class="favorite" v-show="isShowFavorite">
-      <div class="bg"></div>
-      <ul>
-        <li class="item" v-for="(item, index) of favoriteList" :key="item.id">
-          <span class="song-name txt-over">{{ item.name }}</span>
-          <span class="singer txt-over">
-            {{ item?.artists?.[0].name || item?.ar?.[0]?.name }}
-          </span>
-          <div class="operate">
-            <svg-icon
-              :name="isPlay(item.id) ? '24gl-pauseCircle' : '24gl-playCircle'"
-              @click="playFavorite(item, index)"
-            />
-            <svg-icon
-              class="delete"
-              name="shanchu"
-              @click="removeFavorite(item)"
-            />
-          </div>
-        </li>
-      </ul>
-    </div>
+    <ul class="favorite" v-show="isShowFavorite">
+      <li class="item" v-for="(item, index) of favoriteList" :key="item.id">
+        <span class="song-name txt-over">{{ item.name }}</span>
+        <span class="singer txt-over">
+          {{ item?.artists?.[0].name || item?.ar?.[0]?.name }}
+        </span>
+        <div class="operate">
+          <svg-icon
+            :name="isPlay(item.id) ? '24gl-pauseCircle' : '24gl-playCircle'"
+            @click="playFavorite(item, index)"
+          />
+          <svg-icon
+            class="delete"
+            name="shanchu"
+            @click="removeFavorite(item)"
+          />
+        </div>
+      </li>
+    </ul>
   </transition>
 </template>
 
@@ -48,13 +45,12 @@ const playFavorite = (item, index) => {
   animation: enter 0.6s reverse ease-in;
 }
 
-/* transform会与backdrop-filter导致未知问题，所以这里用margin  */
 @keyframes enter {
   from {
     transform: translateX(100%);
   }
   to {
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
@@ -62,11 +58,10 @@ const playFavorite = (item, index) => {
   position: absolute;
   z-index: -1;
   bottom: 0;
-  right: 0;
+  left: 0;
   top: 0;
   width: 280px;
   height: 640px;
-  background: url('@/assets/images/bg.jpg') center/cover no-repeat;
 }
 
 .favorite {
@@ -75,13 +70,10 @@ const playFavorite = (item, index) => {
   bottom: 0;
   right: 0;
   top: 0;
-  ul {
-    width: 280px;
-    height: 640px;
-    background: rgba(114, 111, 104, 0.3);
-    backdrop-filter: blur(20px);
-    overflow-y: scroll;
-  }
+  width: 280px;
+  height: 640px;
+  overflow-y: scroll;
+  background: rgb(60, 56, 59);
   .item {
     color: #fff;
     padding: 10px;

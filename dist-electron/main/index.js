@@ -5,6 +5,7 @@ const path = require("path");
 process.env.DIST_ELECTRON = path.join(__dirname, "..");
 process.env.DIST = path.join(process.env.DIST_ELECTRON, "../dist");
 process.env.PUBLIC = electron.app.isPackaged ? process.env.DIST : path.join(process.env.DIST_ELECTRON, "../public");
+electron.app.disableHardwareAcceleration();
 if (os.release().startsWith("6.1"))
   electron.app.disableHardwareAcceleration();
 if (process.platform === "win32")

@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
+    "allowJs": true,
     "moduleResolution": "node",
     "importHelpers": true,
     "jsx": "preserve",
@@ -15,7 +16,5 @@
     "skipLibCheck": true
   },
   "include": ["src"],
-  "references": [
-    { "path": "./tsconfig.node.json" }
-  ]
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -40,10 +40,9 @@ import Player from '@/components/play/index.vue'
 }
 .play-box {
   /* background: rgba(21, 21, 21, 0.5); */
-  height: calc(100% - 20px);
-  padding-top: 20px;
-  position: relative;
+  height: 100%;
   width: 100%;
+  position: relative;
   overflow: hidden;
 }
 </style>

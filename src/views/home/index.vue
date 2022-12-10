@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header style="-webkit-app-region: drag">
     <input
       class="input"
       v-model="keyword"
@@ -10,7 +10,7 @@
   </header>
   <ul class="music-list">
     <li
-      class="list-item"
+      class="item"
       v-for="(item, index) of musicList"
       :key="item.id"
       @dblclick="play(item, index)"
@@ -24,12 +24,11 @@
       >
         {{ item?.artists?.[0].name || item?.ar?.[0]?.name }}
       </span>
-      <div class="operate">
-        <svg-icon
-          :name="isPlay(item.id) ? '24gl-pauseCircle' : '24gl-playCircle'"
-          @click="play(item, index)"
-        />
-      </div>
+      <svg-icon
+        class="play"
+        :name="isPlay(item.id) ? '24gl-pauseCircle' : '24gl-playCircle'"
+        @click="play(item, index)"
+      />
     </li>
   </ul>
 </template>
@@ -85,6 +84,7 @@ header {
   align-items: center;
   margin-left: 42px;
   position: relative;
+  padding-top: 20px;
   .input {
     width: 220px;
     height: 27px;
@@ -108,13 +108,15 @@ header {
 
 .music-list {
   height: calc(100% - 160px);
-
   overflow: scroll;
-  .list-item {
+  .item {
     display: flex;
     align-items: center;
-    padding: 12px 0;
+    padding: 15px 0;
     color: #fff;
+    &:hover {
+      background: rgba(163, 161, 161, 0.1);
+    }
     .song-name {
       width: 340px;
       padding: 0 50px;
@@ -124,13 +126,10 @@ header {
       padding: 0 50px;
       cursor: pointer;
     }
-    .operate {
+    .play {
       font-size: 23px;
       width: 180px;
       cursor: pointer;
-    }
-    &:hover {
-      background: rgba(163, 161, 161, 0.1);
     }
   }
 }

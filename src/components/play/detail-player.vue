@@ -65,10 +65,9 @@ watch(
 
   .back {
     position: absolute;
-    top: 0;
-    left: 90px;
+    top: 18px;
+    right: 50px;
     cursor: pointer;
-    padding: 3px;
     font-size: 24px;
   }
   .hover-img {
