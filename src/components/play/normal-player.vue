@@ -14,13 +14,13 @@
       <div class="music-info-content" v-if="playCurrent !== -1">
         <img
           class="img"
-          :src="musicInfo?.al?.picUrl || musicInfo?.album?.picUrl"
+          :src="musicInfo.img"
           @click="changePlayMode('detailPlayer')"
         />
         <notice-bar ref="notice">
           <span class="songs">{{ musicInfo.name }}</span>
           <span class="singer">
-            {{ musicInfo?.artists?.[0].name || musicInfo?.ar?.[0]?.name }}
+            {{ musicInfo.singer }}
           </span>
         </notice-bar>
       </div>
@@ -106,7 +106,7 @@ const collect = item => {
   .progress-bar {
     height: 4px;
     width: 100%;
-    background: rgba(211, 209, 209, 0.301);
+    background: rgba(211, 209, 209, 0.3);
     .bar {
       width: 1px;
     }
@@ -128,9 +128,6 @@ const collect = item => {
       border-radius: 50%;
       cursor: pointer;
       margin: 0 20px;
-    }
-    .no-img {
-      background: red;
     }
     .singer {
       margin-left: 20px;

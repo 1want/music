@@ -3,9 +3,7 @@
     <ul class="favorite" v-show="isShowFavorite">
       <li class="item" v-for="(item, index) of favoriteList" :key="item.id">
         <span class="song-name txt-over">{{ item.name }}</span>
-        <span class="singer txt-over">
-          {{ item?.artists?.[0].name || item?.ar?.[0]?.name }}
-        </span>
+        <span class="singer txt-over">{{ item.singer }}</span>
         <div class="operate">
           <svg-icon
             :name="isPlay(item.id) ? '24gl-pauseCircle' : '24gl-playCircle'"
@@ -52,16 +50,6 @@ const playFavorite = (item, index) => {
   to {
     transform: translateX(0);
   }
-}
-
-.bg {
-  position: absolute;
-  z-index: -1;
-  bottom: 0;
-  left: 0;
-  top: 0;
-  width: 280px;
-  height: 640px;
 }
 
 .favorite {

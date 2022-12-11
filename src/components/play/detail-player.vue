@@ -5,17 +5,12 @@
       name="shanglajiantou"
       @click="changePlayMode('normalPlayer')"
     />
-    <img
-      class="hover-img"
-      :src="musicInfo?.al?.picUrl || musicInfo?.album?.picUrl"
-    />
+    <img class="hover-img" :src="musicInfo?.img" />
 
     <div class="lyric">
       <div class="info">
         <p class="songs">{{ musicInfo.name }}</p>
-        <p class="singer">
-          {{ musicInfo?.artists?.[0].name || musicInfo?.ar?.[0]?.name }}
-        </p>
+        <p class="singer">{{ musicInfo.singer }}</p>
       </div>
 
       <div class="box">
@@ -45,7 +40,7 @@ watch(
   newV => {
     let l = newV - 3
     if (l > 0 && l < lyric.value.length - 6) {
-      line.value = -l * 54.86
+      line.value = -l * 55
     }
   }
 )
@@ -86,7 +81,7 @@ watch(
   }
   .box {
     height: 420px;
-    overflow: scroll;
+    overflow: hidden;
   }
   .info {
     text-align: center;

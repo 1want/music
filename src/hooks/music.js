@@ -36,8 +36,7 @@ function music() {
 
   const addFavorite = item => {
     const index = state.favoriteList.findIndex(music => music.id === item.id)
-    index && state.favoriteList.splice(index, 1)
-    state.favoriteList.push(item)
+    index === -1 && state.favoriteList.push(item)
     localStorage.setItem('favoriteList', JSON.stringify(state.favoriteList))
   }
 
@@ -71,16 +70,24 @@ function music() {
       togglePlayState()
       return
     }
-    document.title = music.name
     state.playCurrent = index
     state.playState = true
-    state.musicInfo = music
+    state.musicInfo = formatMusic(music)
     getUrl(id).then(res => {
       state.url = res.data[0].url
     })
     getLyric(id).then(res => {
       state.lyric = analyzeLyrics(res.lrc.lyric)
     })
+  }
+
+  const formatMusic = music => {
+    const obj = Object.create(null)
+    obj.id = music.id
+    obj.img = music?.al?.picUrl || music?.album?.picUrl
+    obj.name = music.name
+    obj.singer = music?.artists?.[0].name || music?.ar?.[0]?.name
+    return obj
   }
 
   return {
