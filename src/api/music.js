@@ -1,9 +1,10 @@
 import request from '@/utils/request'
 
-export function getNewSong(limit = 16) {
+export function getNewSong(type = 96, limit = 16) {
   return request({
-    url: 'top/song?type=96',
+    url: 'top/song',
     params: {
+      type,
       limit
     }
   })
@@ -32,7 +33,7 @@ export function getLyric(id) {
 // 根据关键字搜索音乐
 export function searchByKeyword(keywords, offset = 0, type = 1, limit = 15) {
   return request({
-    url: 'cloudsearch/',
+    url: 'cloudsearch',
     params: {
       keywords,
       offset,

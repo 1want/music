@@ -1,25 +1,32 @@
-import axios from 'axios'
+import qs from 'qs'
 
 function request(options) {
-  return new Promise((resolve, reject) => {
-    const instance = axios.create({
-      baseURL: import.meta.env.VITE_API,
-      timeout: 10000
-    })
+  const baseURL = import.meta.env.VITE_API
+  let url = baseURL + options.url,
+    config = null
 
-    instance(options)
-      .then(
-        res => {
-          if (res.data.code === 200) {
-            resolve(res.data)
-          }
-        },
-        err => {
-          reject(err)
+  if (options.method !== 'post') {
+    url += '?' + qs.stringify(options.params)
+  } else {
+    config = {
+      method: 'POST',
+      body: JSON.stringify({
+        ...options.params
+      })
+    }
+  }
+
+  return new Promise((resolve, reject) => {
+    fetch(url, config)
+      .then(res => {
+        return res.json()
+      })
+      .then(res => {
+        if (res.code === 200) {
+          resolve(res)
+        } else {
+          reject(res)
         }
-      )
-      .catch(err => {
-        console.log(err)
       })
   })
 }
