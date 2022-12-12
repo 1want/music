@@ -64,6 +64,7 @@ function music() {
   }
 
   const playMusic = (music, index) => {
+    console.log(music)
     const { id } = music
     // 当对同一首歌曲进行点击时只需改变它的播放状态，传递一个反相值即可
     if (state.musicInfo.id === id) {
@@ -84,9 +85,10 @@ function music() {
   const formatMusic = music => {
     const obj = Object.create(null)
     obj.id = music.id
-    obj.img = music?.al?.picUrl || music?.album?.picUrl
+    obj.img = music.img || music?.al?.picUrl || music?.album?.picUrl
     obj.name = music.name
-    obj.singer = music?.artists?.[0].name || music?.ar?.[0]?.name
+    obj.singer =
+      music.singer || music?.artists?.[0].name || music?.ar?.[0]?.name
     return obj
   }
 

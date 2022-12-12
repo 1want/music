@@ -8,7 +8,7 @@
     />
     <svg-icon class="search-icon" name="sousuo" @click="search" />
   </header>
-  <ul class="music-list">
+  <ul class="music-list" v-if="musicList?.length">
     <li
       class="item"
       v-for="(item, index) of musicList"
@@ -31,6 +31,7 @@
       />
     </li>
   </ul>
+  <div class="reload" v-else @click="reload">重新加载</div>
 </template>
 
 <script setup>
@@ -65,6 +66,11 @@ const searchSinger = name => {
   })
 }
 
+const reload = () => {
+  keyword.value = ''
+  getMusicList()
+}
+
 bus.on('play', () => {
   copyMusicList(musicList.value)
   autoPlay()
@@ -72,6 +78,7 @@ bus.on('play', () => {
 
 const search = debounce(() => {
   searchByKeyword(keyword.value).then(res => {
+    console.log(res)
     musicList.value = res.result.songs
   })
 }, 150)
@@ -132,5 +139,16 @@ header {
       cursor: pointer;
     }
   }
+}
+.reload {
+  width: 120px;
+  height: 50px;
+  color: #fff;
+  margin: 20% auto;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid rgb(76, 72, 72);
 }
 </style>
