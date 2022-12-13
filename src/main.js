@@ -1,6 +1,5 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import './samples/node-api'
 
 import SvgIcon from '@/components/svg-icon/index.vue'
 
