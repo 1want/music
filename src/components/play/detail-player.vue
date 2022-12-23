@@ -60,8 +60,8 @@ watch(
 
   .back {
     position: absolute;
-    top: 18px;
-    right: 50px;
+    top: 3px;
+    left: 80px;
     cursor: pointer;
     font-size: 24px;
   }

@@ -1,5 +1,5 @@
 <template>
-  <header style="-webkit-app-region: drag">
+  <header data-tauri-drag-region>
     <input
       class="input"
       v-model="keyword"
