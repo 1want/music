@@ -114,8 +114,8 @@ header {
 }
 
 .music-list {
-  height: calc(100% - 160px);
-  overflow: scroll;
+  height: calc(100% - 180px);
+  overflow-y: scroll;
   .item {
     display: flex;
     align-items: center;
